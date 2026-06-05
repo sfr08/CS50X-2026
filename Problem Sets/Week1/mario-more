@@ -1,0 +1,33 @@
+#include <cs50.h>
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+    int height;
+    do
+    {
+        height = get_int("Height? ");
+    }
+    while (height < 1 || height > 8);
+
+    int i = 0;
+    int j = 0;
+    char left_part[20] = "";
+    char right_part[20] = "";
+    string middle = "  ";
+    string hash = "#";
+    string space = " ";
+    while (j < height - 1)
+    {
+        strcat(left_part, space);
+        j++;
+    }
+    while (i < height)
+    {
+        left_part[height - i - 1] = '#';
+        strcat(right_part, hash);
+        printf("%s%s%s\n", left_part, middle, right_part);
+        i++;
+    }
+}
